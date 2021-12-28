@@ -1,8 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.scss'
-import {Accounts} from '@/components/Accounts';
-import {Header} from '@/components/Header';
+import {Header} from '@/components/Header/Header';
+import {AccountsSection} from '@/components/AccountsSection/AccountsSection';
+import {CompanySection} from '@/components/CompanySection/CompanySection';
 
 const Home: NextPage = () => {
   return (
@@ -15,24 +16,8 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <Header/>
-
-        <section>
-            <h2>Company</h2>
-          <p className={styles.description}>
-            Name : MANSA GROUP
-          </p>
-          <p className={styles.description}>
-            SIRET : 03459535434
-          </p>
-          <p className={styles.description}>
-            Address: 112 AV DE PARIS 94300 VINCENNES
-          </p>
-        </section>
-
-        <section className={styles.grid}>
-          <h2> Accounts </h2>
-          <Accounts/>
-        </section>
+        <CompanySection/>
+        <AccountsSection/>
       </main>
     </div>
   )

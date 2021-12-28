@@ -1,4 +1,4 @@
-import {Logo} from '@/components/Logo';
+import {Logo} from '@/components/Header/Logo';
 import styled from 'styled-components';
 import variables from '/styles/_variables.module.scss';
 

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Card, CardDescription, CardValue} from '@/components/Card';
+import {Card, CardDescription, CardValue} from '@/components/AccountsSection/Card';
 
 export const AccountsContainer = styled.div`
   display: flex;
