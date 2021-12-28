@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.scss'
-import {Card} from '@/components/card';
+import {Card} from '@/components/Card';
+import {Accounts} from '@/components/Accounts';
 
 const Home: NextPage = () => {
   return (
@@ -31,28 +31,10 @@ const Home: NextPage = () => {
 
         <section className={styles.grid}>
           <h2> Accounts </h2>
-          <Card>
-            <h3>Account number: 19040061</h3>
-            <p>Balance: 1844.23GBP</p>
-          </Card>
-          <div className={styles.card}>
-            <h3>Account number: 19040061</h3>
-            <p>Balance: 1844.23GBP</p>
-          </div>
-          <div className={styles.card}>
-            <h3>Account number: 19040061</h3>
-            <p>Balance: 1844.23GBP</p>
-          </div>
-          <div className={styles.card}>
-            <h3>Account number: 19040061</h3>
-            <p>Balance: 1844.23GBP</p>
-          </div>
+          <Accounts/>
 
         </section>
       </main>
-
-      <footer className={styles.footer}>
-      </footer>
     </div>
   )
 }
