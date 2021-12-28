@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.scss'
 import {Header} from '@/components/Header/Header';
 import {AccountsSection} from '@/components/AccountsSection/AccountsSection';
 import {CompanySection} from '@/components/CompanySection/CompanySection';
+import {UserSection} from '@/components/UserSection/UserSection';
 
 const Home: NextPage = () => {
   return (
@@ -16,6 +17,7 @@ const Home: NextPage = () => {
 
       <main className={styles.main}>
         <Header/>
+        <UserSection/>
         <CompanySection/>
         <AccountsSection/>
       </main>

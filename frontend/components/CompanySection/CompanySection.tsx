@@ -11,10 +11,10 @@ const CompanySectionContainer = styled.section`
   padding: 0 ${variables.spaceXXL};
 
   > h2 {
-    margin: 16px;
+    margin: ${variables.spaceSM};
   }
   > p {
-    margin: 8px 16px;
+    margin: ${variables.spaceXS} ${variables.spaceSM};
   }
 `
 

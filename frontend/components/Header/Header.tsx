@@ -8,6 +8,7 @@ const HeaderContainer = styled.header`
   align-items: center;
   border-bottom: 2px solid #EDEAF9;
   padding: 0 ${variables.spaceXXL};
+  background-color: white;
 `
 export const Header = () => {
   return (<HeaderContainer>
