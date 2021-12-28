@@ -1,8 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.scss'
-import {Card} from '@/components/Card';
 import {Accounts} from '@/components/Accounts';
+import {Header} from '@/components/Header';
 
 const Home: NextPage = () => {
   return (
@@ -14,7 +14,7 @@ const Home: NextPage = () => {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>Mansa</h1>
+        <Header/>
 
         <section>
             <h2>Company</h2>
@@ -32,7 +32,6 @@ const Home: NextPage = () => {
         <section className={styles.grid}>
           <h2> Accounts </h2>
           <Accounts/>
-
         </section>
       </main>
     </div>

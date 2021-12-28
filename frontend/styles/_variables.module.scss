@@ -1,9 +1,10 @@
 $color-primary: #6246D1;
 $color-primary-border: #CAC2EF;
 $color-primary-background : #F4F3FB;
-
 $color-secondary: #FE3437;
 $color-default: #183652;
+
+$header-height: 80px;
 
 $space-xxxs: 2px;
 $space-xxs: 4px;
@@ -21,7 +22,11 @@ $space-xxxxl: $space-xs * 8; // 64
   colorPrimaryBorder: $color-primary-border;
   colorPrimary: $color-primary;
   colorPrimaryBackground: $color-primary-background;
+  colorSecondary: $color-secondary;
+  headerHeight: $header-height;
   spaceXS: $space-xs;
   spaceSM: $space-sm;
   spaceMD: $space-md;
+  spaceXXL: $space-xxl;
+
 }
