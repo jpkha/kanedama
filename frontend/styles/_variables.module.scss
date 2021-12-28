@@ -1,0 +1,10 @@
+$color-primary: #6246D1;
+$color-primary-border: red;
+$color-primary-background : #F4F3FB;
+
+$color-secondary: #FE3437;
+$color-default: #183652;
+
+:export {
+  colorPrimaryBorder: $color-primary-border;
+}
