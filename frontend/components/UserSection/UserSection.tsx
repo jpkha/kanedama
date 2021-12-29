@@ -1,23 +1,53 @@
-import styled from 'styled-components';
-import variables from '/styles/_variables.module.scss';
-import {AcronymBullet} from '@/components/UserSection/AcronymBullet';
+import {Acronym} from '@/components/UserSection/AcronymBullet';
 import {UserTitle} from '@/components/UserSection/UserTitle';
+import {useEffect, useState} from 'react';
+import {User} from '../../models/user';
+import {UserSectionContainer} from '@/components/UserSection/UserSectionContainer';
+import {UserContainer} from '@/components/UserSection/UserContainer';
+import {RandomUserService} from '../../services/randomUserService';
+import {RandomUserResponse} from '../../models/randomUserResponse';
+import {ParseUser} from '../../utils/parseUser';
+import {AxiosResponse} from 'axios';
 
-const UserSectionContainer = styled.section`
-  display: flex;
-  padding: 0 ${variables.spaceXXL};
-`
+const initUser: User = {
+  gender: '',
+  location: {
+    street: '',
+    city: '',
+    state: '',
+    country: '',
+    postCode: 0,
+  },
+  email: '',
+  phone: '',
+  cell: '',
+  title: '',
+  first: '',
+  last: ''
+};
 
-const UserContainer = styled.div`
-  display: flex;
-  align-items: center;
-  padding: ${variables.spaceSM} 0;
-`
 export const UserSection = () => {
+
+  const [user, setUser] = useState<User>(initUser);
+  const randomUserService = new RandomUserService();
+
+  const getUser = () => {
+    randomUserService.getRandomUser()
+      .then(({data}: AxiosResponse<RandomUserResponse>) => {
+        if (data.info.results > 0) {
+          setUser(ParseUser.parseRandomUserToUser(data.results[0]))
+        }
+      })
+  }
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
   return (<UserSectionContainer>
     <UserContainer>
-      <AcronymBullet>TR</AcronymBullet>
-      <UserTitle>TINCO Rémy</UserTitle>
+      <Acronym first={user.first} last={user.last}/>
+      <UserTitle>{user.first} {user.last}</UserTitle>
     </UserContainer>
   </UserSectionContainer>)
 }

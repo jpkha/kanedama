@@ -7,3 +7,7 @@ export const AcronymBullet = styled.span`
   padding: 0.75rem;
   border-radius: 2.5rem;
 `
+
+export const Acronym = ({first, last}: {first: string, last: string}) => {
+  return <AcronymBullet>{first.charAt(0)}{last.charAt(0)}</AcronymBullet>
+}

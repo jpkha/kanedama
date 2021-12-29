@@ -32,7 +32,7 @@ export const Accounts = () => {
   return (
     <AccountsContainer>
       {listAccount.map(({accountNumber, balance, currency}) => (
-        <Card>
+        <Card key={accountNumber}>
           <h3><CardDescription>Account number:</CardDescription> <CardValue>{accountNumber}</CardValue></h3>
           <p><CardDescription>Balance:</CardDescription> <CardValue>{balance} {currency}</CardValue></p>
         </Card>
