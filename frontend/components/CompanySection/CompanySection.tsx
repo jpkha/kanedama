@@ -3,23 +3,23 @@ import variables from '/styles/_variables.module.scss';
 import {Section} from '@/components/common/Section';
 
 
-const CompanySectionContainer = styled(Section)`
-  & > p {
+const CompanyDescription = styled.p`
     margin: ${variables.spaceXS} ${variables.spaceSM};
-  }
 `;
 
+
+
 export const CompanySection = () => {
-  return <CompanySectionContainer>
+  return <Section>
       <h2>Company</h2>
-      <p>
+      <CompanyDescription>
         Name : MANSA GROUP
-      </p>
-      <p>
+      </CompanyDescription>
+      <CompanyDescription>
         SIRET : 03459535434
-      </p>
-      <p>
+      </CompanyDescription>
+      <CompanyDescription>
         Address: 112 AV DE PARIS 94300 VINCENNES
-      </p>
-  </CompanySectionContainer>
+      </CompanyDescription>
+  </Section>
 }

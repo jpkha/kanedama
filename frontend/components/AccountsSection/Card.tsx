@@ -1,23 +1,16 @@
 import styled from 'styled-components';
 import variables from '/styles/_variables.module.scss';
 
-export const Card = styled.div`
+export const Card = styled.li`
   margin: ${variables.spaceSM};
   padding: ${variables.spaceMD};
   color: ${variables.colorPrimary};
   background-color: ${variables.colorPrimaryBackground};
-  text-decoration: none;
   border: 1px solid ${variables.colorPrimaryBorder};
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
   flex: 1 0 45%;
-
-  &:hover,
-  &:focus,
-  &:active {
-    color: #0070f3;
-    border-color: #0070f3;
-  }
+  list-style: none;
 
   > h3 {
     display: flex;
