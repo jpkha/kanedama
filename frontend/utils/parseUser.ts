@@ -1,4 +1,4 @@
-import {RandomUserResult, Street} from '../models/randomUserResponse';
+import {RandomUserResult, Street} from '../models/api/randomUserResponse';
 import {User} from '../models/user';
 
 export class ParseUser {

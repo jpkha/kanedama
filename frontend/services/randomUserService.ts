@@ -1,6 +1,6 @@
 import axios, {AxiosInstance, AxiosResponse} from 'axios';
 import {RANDOM_USER_URL_API} from './constants';
-import {RandomUserResponse} from '../models/randomUserResponse';
+import {RandomUserResponse} from '../models/api/randomUserResponse';
 
 export class RandomUserService {
 

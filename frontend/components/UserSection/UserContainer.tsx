@@ -4,5 +4,5 @@ import variables from '/styles/_variables.module.scss';
 export const UserContainer = styled.div`
   display: flex;
   align-items: center;
-  padding: ${variables.spaceSM} 0;
+  padding: ${variables.spaceSM};
 `

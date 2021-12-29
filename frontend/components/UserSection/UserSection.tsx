@@ -1,11 +1,11 @@
-import {Acronym} from '@/components/UserSection/AcronymBullet';
+import {AcronymBullet} from '@/components/UserSection/AcronymBullet';
 import {UserTitle} from '@/components/UserSection/UserTitle';
 import {useEffect, useState} from 'react';
 import {User} from '../../models/user';
 import {UserSectionContainer} from '@/components/UserSection/UserSectionContainer';
 import {UserContainer} from '@/components/UserSection/UserContainer';
 import {RandomUserService} from '../../services/randomUserService';
-import {RandomUserResponse} from '../../models/randomUserResponse';
+import {RandomUserResponse} from '../../models/api/randomUserResponse';
 import {ParseUser} from '../../utils/parseUser';
 import {AxiosResponse} from 'axios';
 
@@ -46,7 +46,7 @@ export const UserSection = () => {
 
   return (<UserSectionContainer>
     <UserContainer>
-      <Acronym first={user.first} last={user.last}/>
+      <AcronymBullet first={user.first} last={user.last}/>
       <UserTitle>{user.first} {user.last}</UserTitle>
     </UserContainer>
   </UserSectionContainer>)
