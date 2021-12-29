@@ -1,5 +1,11 @@
 import styled from 'styled-components';
-import {Card, CardDescription, CardValue} from '@/components/AccountsSection/Card';
+import {AccountCard} from '@/components/AccountsSection/AccountCard';
+import {useEffect, useState} from 'react';
+import {AxiosResponse} from 'axios';
+import {AccountCompany} from '../../models/accountCompany';
+import {AccountsService} from '../../services/accountsService';
+import {AccountResponse} from '../../models/api/accountsReponse';
+import {ParseAccount} from '../../utils/parseAccount';
 
 export const AccountsContainer = styled.ul`
   display: flex;
@@ -9,36 +15,25 @@ export const AccountsContainer = styled.ul`
 `
 
 export const Accounts = () => {
-  const listAccount = [
-    {
-      accountNumber: '19040001',
-      balance: 1844.23,
-      currency: 'GBP'
-    },
-    {
-      accountNumber: '19040062',
-      balance: 1844.23,
-      currency: 'GBP'
-    },
-    {
-      accountNumber: '19040063',
-      balance: 1844.23,
-      currency: 'GBP'
-    },
-    {
-      accountNumber: '19040064',
-      balance: 1844.23,
-      currency: 'GBP'
-    }
-  ]
+  const initListAccount: AccountCompany[] = [];
+
+  const [accountList, setAccountList] = useState<AccountCompany[]>(initListAccount);
+  const accountsService = new AccountsService();
+
+  const getAccounts = () => {
+    accountsService.getAccounts()
+      .then(({data}: AxiosResponse<AccountResponse[]>) => {
+        setAccountList(data.map((account: AccountResponse) => ParseAccount.parseAccountResponseToAccountCompany(account)))
+      })
+  }
+
+  useEffect(() => {
+    getAccounts();
+  }, []);
   return (
     <AccountsContainer>
-      {listAccount.map(({accountNumber, balance, currency}) => (
-        <Card key={accountNumber}>
-          <h3><CardDescription>Account number:</CardDescription> <CardValue>{accountNumber}</CardValue></h3>
-          <p><CardDescription>Balance:</CardDescription> <CardValue>{balance} {currency}</CardValue></p>
-        </Card>
-
+      {accountList.map((accountCompany: AccountCompany) => (
+        <AccountCard key={accountCompany.accountNumber} accountCompany={accountCompany}/>
       ))}
     </AccountsContainer>
   )

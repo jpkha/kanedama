@@ -10,6 +10,7 @@ const CompanyDescription = styled.p`
 
 
 export const CompanySection = () => {
+
   return <Section>
       <h2>Company</h2>
       <CompanyDescription>

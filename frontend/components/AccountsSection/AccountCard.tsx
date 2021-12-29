@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import variables from '/styles/_variables.module.scss';
+import {AccountCompany} from '../../models/accountCompany';
 
 export const Card = styled.li`
   margin: ${variables.spaceSM};
@@ -35,3 +36,11 @@ export const CardValue = styled.span`
 export const CardDescription = styled.span`
   flex: 1 1 auto;
 `
+
+export const AccountCard = ({accountCompany}: { accountCompany: AccountCompany }) => {
+  return (<Card>
+    <h3><CardDescription>Account number:</CardDescription> <CardValue>{accountCompany.accountNumber}</CardValue></h3>
+    <p><CardDescription>Balance:</CardDescription>
+      <CardValue>{accountCompany.balance} {accountCompany.currency}</CardValue></p>
+  </Card>)
+}

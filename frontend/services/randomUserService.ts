@@ -14,7 +14,7 @@ export class RandomUserService {
   };
 
   getRandomUser = (): Promise<AxiosResponse<RandomUserResponse>> => {
-    return this.init().get<RandomUserResponse>(`/api/?nat=fr`);
+    return this.init().get<RandomUserResponse>(`/?nat=fr`);
   };
 
 }

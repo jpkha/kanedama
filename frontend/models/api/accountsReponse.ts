@@ -1,4 +1,4 @@
-export interface Accounts {
+export interface AccountResponse {
   account_id: string;
   account_type: string;
   iban: string;
@@ -9,8 +9,4 @@ export interface Accounts {
   available: number;
   current: number;
   update_timestamp: string;
-}
-
-export interface  AccountsResponse {
-  [index: number]: Accounts
 }
