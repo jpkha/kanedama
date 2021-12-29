@@ -31,16 +31,16 @@ export const UserSection = () => {
   const [user, setUser] = useState<User>(initUser);
   const randomUserService = new RandomUserService();
 
-  const getUser = () => {
-    randomUserService.getRandomUser()
-      .then(({data}: AxiosResponse<RandomUserResponse>) => {
-        if (data.info.results > 0) {
-          setUser(ParseUser.parseRandomUserToUser(data.results[0]))
-        }
-      })
-  }
 
   useEffect(() => {
+    const getUser = () => {
+      randomUserService.getRandomUser()
+        .then(({data}: AxiosResponse<RandomUserResponse>) => {
+          if (data.info.results > 0) {
+            setUser(ParseUser.parseRandomUserToUser(data.results[0]))
+          }
+        })
+    }
     getUser();
   }, []);
 

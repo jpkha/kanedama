@@ -4,7 +4,7 @@ import {useEffect, useState} from 'react';
 import {AxiosResponse} from 'axios';
 import {AccountCompany} from '../../models/accountCompany';
 import {AccountsService} from '../../services/accountsService';
-import {AccountResponse} from '../../models/api/accountsReponse';
+import {AccountResponse} from '../../models/api/accountReponse';
 import {ParseAccount} from '../../utils/parseAccount';
 
 export const AccountsContainer = styled.ul`
@@ -20,14 +20,14 @@ export const Accounts = () => {
   const [accountList, setAccountList] = useState<AccountCompany[]>(initListAccount);
   const accountsService = new AccountsService();
 
-  const getAccounts = () => {
-    accountsService.getAccounts()
-      .then(({data}: AxiosResponse<AccountResponse[]>) => {
-        setAccountList(data.map((account: AccountResponse) => ParseAccount.parseAccountResponseToAccountCompany(account)))
-      })
-  }
-
   useEffect(() => {
+    const getAccounts = () => {
+      accountsService.getAccounts()
+        .then(({data}: AxiosResponse<AccountResponse[]>) => {
+          setAccountList(data.map((account: AccountResponse) => ParseAccount.parseAccountResponseToAccountCompany(account)))
+        })
+    }
+
     getAccounts();
   }, []);
   return (

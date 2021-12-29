@@ -1,6 +1,6 @@
 import axios, {AxiosInstance, AxiosResponse} from 'axios';
 import {KATA_MANSA_API} from './constants';
-import {AccountsResponse} from '../models/api/accountsReponse';
+import {AccountResponse} from '../models/api/accountReponse';
 
 export class AccountsService {
 
@@ -13,8 +13,8 @@ export class AccountsService {
     return this.client;
   };
 
-  getAccounts = (): Promise<AxiosResponse<AccountsResponse>> => {
-    return this.init().get<AccountsResponse>(`/accounts`);
+  getAccounts = (): Promise<AxiosResponse<AccountResponse[]>> => {
+    return this.init().get<AccountResponse[]>(`/accounts`);
   };
 
 }

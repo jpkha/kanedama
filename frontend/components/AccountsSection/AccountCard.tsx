@@ -10,8 +10,12 @@ export const Card = styled.li`
   border: 1px solid ${variables.colorPrimaryBorder};
   border-radius: 10px;
   transition: color 0.15s ease, border-color 0.15s ease;
-  flex: 1 0 45%;
+  flex: 1 0 auto;
   list-style: none;
+  @media (min-width: ${variables.breakpointMD}) {
+    flex: 1 0 45%;
+    max-width: 45%;
+  }
 
   > h3 {
     display: flex;

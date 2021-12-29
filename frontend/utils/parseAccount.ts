@@ -1,5 +1,5 @@
 import {AccountCompany} from '../models/accountCompany';
-import {AccountResponse} from '../models/api/accountsReponse';
+import {AccountResponse} from '../models/api/accountReponse';
 
 export class ParseAccount {
 
